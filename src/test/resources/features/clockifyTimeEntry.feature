@@ -12,7 +12,7 @@ Feature: TimeEntry operations
     And endpoint /v1/workspaces
     When execute method GET
     Then the status code should be 200
-    * define idWorkspace = $.[0].id
+    * define idWorkspace = $.[1].id
 
   @ListUsers
   Scenario: Find all users on workspace
@@ -47,8 +47,8 @@ Feature: TimeEntry operations
       And call clockifyTimeEntry.feature@ListTimeEntries
       And endpoint /v1/workspaces/{{idWorkspace}}/time-entries/{{idTimeEntry}}
       And body updateTimeEntry.json
-      When execute method POST
-      Then the status code should be 201
+      When execute method PUT
+      Then the status code should be 200
 
 
     @TimeEntry3 #agregar contenido a la time entry
@@ -57,4 +57,4 @@ Feature: TimeEntry operations
       And call clockifyTimeEntry.feature@ListTimeEntries
       And endpoint /v1/workspaces/{{idWorkspace}}/time-entries/{{idTimeEntry}}
       When execute method DELETE
-      Then the status code should be 200
+      Then the status code should be 204
