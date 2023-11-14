@@ -32,7 +32,7 @@ Feature: TimeEntry operations
       Then the status code should be 200
       * define idTimeEntry = $.[0].id
 
-    @TimeEntry1 #verificar el proyecto al cual se le estan agregando horas
+    @TimeEntry1
     Scenario: Add a new time entry
       Given call clockifyTimeEntry.feature@ListWorkspaces
       And endpoint /v1/workspaces/{{idWorkspace}}/time-entries
@@ -41,7 +41,7 @@ Feature: TimeEntry operations
       Then the status code should be 201
 
 
-    @TimeEntry2 #verificar el proyecto al cual se le estan realizando modificaciones
+    @TimeEntry2
     Scenario: Update time entry on workspace
       Given call clockifyTimeEntry.feature@ListWorkspaces
       And call clockifyTimeEntry.feature@ListTimeEntries
@@ -51,7 +51,7 @@ Feature: TimeEntry operations
       Then the status code should be 200
 
 
-    @TimeEntry3 #agregar contenido a la time entry
+    @TimeEntry3
     Scenario: Delete time entry from workspace
       Given call clockifyTimeEntry.feature@ListWorkspaces
       And call clockifyTimeEntry.feature@ListTimeEntries
