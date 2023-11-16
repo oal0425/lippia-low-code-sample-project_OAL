@@ -80,3 +80,16 @@ Feature: Projects
     And body agregarProject.json
     When execute method POST
     Then the status code should be 404
+
+  @Project8
+    Scenario Outline: Editar el valor de algún campo del proyecto y validar el cambio realizado
+    Given call clockifyProjects.feature@ListWorkspaces
+    And call clockifyProjects.feature@ListProjects
+    And base url https://api.clockify.me/api
+    And endpoint /v1/workspaces/{{idWorkspace}}/projects/{{idProject}}
+    And set value <values> of key archived,billable in body updateProject.json
+    When execute method PUT
+    Then the status code should be 200
+    Examples:
+      | values         |  |
+      | "true", "true" |  |

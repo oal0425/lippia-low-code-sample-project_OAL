@@ -15,6 +15,13 @@
 
 
   @Workspace2
+  Scenario: Get all my workspaces
+    Given base url https://api.clockify.me/api
+    And endpoint /v1/workspaces
+    When execute method GET
+    Then the status code should be 200
+    And validar schema allworkspaces.json
+    And defino una variable con nombre <idWorspace> que contenga el id de workspace cuyo nombre es <newWorkspace>
 
 
   @Workspace3

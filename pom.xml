@@ -50,6 +50,7 @@
 	        <groupId>io.lippia</groupId>
 	        <artifactId>core</artifactId>
 	        <version>3.3.0.0</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.lippia.report</groupId>
@@ -99,6 +100,12 @@
             <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc10</artifactId>
             <version>19.17.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-xml_2.12</artifactId>
+            <version>1.0.6</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
